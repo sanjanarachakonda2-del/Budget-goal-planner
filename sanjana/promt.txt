@@ -1,0 +1,549 @@
+# Full-Stack Web Application —  Project Generation Prompt
+
+Act as an expert full-stack web developer, software architect, UI/UX designer, database designer, and beginner-friendly instructor.
+
+Build a **complete, functional, database-connected full-stack web application** named **[PROJECT_TITLE]** using only the following technologies:
+
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Backend:** Node.js and Express.js
+- **Database:** Supabase PostgreSQL
+- **Version control:** Git and GitHub
+
+This project is for first-year B.Tech students who may have little or no prior experience with full-stack development. Assume that the student needs clear explanations and complete instructions for every step.
+
+## 1. Project Details — Change Only the Title
+
+**Project title:** `[PROJECT_TITLE]`
+
+**Project description:** Automatically understand the purpose of the project from its title. If the title is ambiguous, state reasonable assumptions and build a practical, beginner-friendly version of the application.
+
+**Optional description or core features from the project list:** `[PROJECT_DESCRIPTION_OR_CORE_FEATURES]`
+
+Students should replace `[PROJECT_TITLE]` with their assigned project title. They may optionally provide the corresponding description and core features from the project titles PDF to make the result more accurate.
+give signup and signin aswell, use admin mail as : mrec@gmail.com password: MREC@123 
+Do not build a generic CRUD application that ignores the actual project idea. Understand the real-world problem the project solves and design its features, database, pages, and workflows accordingly.
+
+## 2. Mandatory Technology Restrictions
+
+Use only:
+
+- HTML for page structure.
+- CSS for styling and responsive layouts.
+- Vanilla JavaScript for frontend functionality.
+- Node.js for server-side JavaScript.
+- Express.js for backend routes and middleware.
+- Supabase PostgreSQL for persistent data storage.
+- npm packages strictly necessary to implement the application securely.
+
+Do not use React, Angular, Vue, Next.js, TypeScript, MongoDB, Firebase, Python, PHP, Java, or any other frontend framework, backend framework, or database.
+
+Do not require paid services, external APIs, AI APIs, or third-party integrations for the core application to work.
+
+Use simple HTML, CSS, and JavaScript. Avoid unnecessary abstractions, complicated architecture, and features that are too advanced for first-year students.
+
+You may use small utility libraries when genuinely necessary, but explain their purpose. Do not introduce another technology merely to make the project look more advanced.
+
+## 3. Understand and Design the Project
+
+Before writing code, identify the following based on the project title:
+
+1. The real-world problem being solved.
+2. The target users and their needs.
+3. The different user roles, if required.
+4. The essential features and optional improvements.
+5. The pages and dashboards needed.
+6. The data that must be stored in the database.
+7. The relationships between database tables.
+8. The backend API endpoints required.
+9. The main user workflows.
+10. The validation, authorization, and security requirements.
+
+Create a realistic minimum viable product (MVP) that students can complete with AI assistance.
+
+Prioritize the essential features first. Do not add unnecessary features that make the project too large.
+
+If the project title suggests multiple roles, implement appropriate role-based access. For example, an administrator may manage records, while ordinary users can access only the features and data permitted for their roles.
+
+If multiple roles are unnecessary, do not create them artificially.
+
+Include sample data only when useful for demonstrating the application. Clearly identify demo data and explain how to replace it.
+
+## 4. Required Project Folder Structure
+
+The root project folder must use a lowercase, hyphen-separated name derived from the project title.
+
+Use the following structure as the standard. Add more files or subfolders only when required by the application.
+
+```text
+project-name/
+├── frontend/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+├── backend/
+│   ├── server.js
+│   ├── supabase.js
+│   ├── routes/
+│   ├── middleware/
+│   ├── utils/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── .env
+│   ├── .env.example
+│   └── .gitignore
+├── database/
+│   └── schema.sql
+├── .gitignore
+└── README.md
+```
+
+Folder rules:
+
+- The frontend directory MUST be named `frontend`, never `public`.
+- The backend directory MUST be named `backend`.
+- The database directory MUST be named `database`.
+- The root directory MUST contain a complete `README.md`.
+- Keep all SQL scripts in `database/`.
+- Keep backend routes, middleware, and helper files inside `backend/`.
+- Keep frontend HTML, CSS, and browser JavaScript inside `frontend/`.
+- Include additional files such as authentication utilities, controllers, validation modules, and tests when necessary.
+- Do not create unnecessary files just to fill the folder structure.
+
+Configure Express to serve the frontend correctly from the `frontend/` directory. For example:
+
+```javascript
+app.use(express.static(path.join(__dirname, "..", "frontend")));
+```
+
+Use the correct absolute paths, imports, asset references, API URLs, and environment variable names throughout the application.
+
+The final folder structure must match the code and the README exactly.
+
+## 5. Deliver the Entire Project in One Response
+
+Provide the entire working project in a single, comprehensive response.
+
+Do not stop after creating the folder structure or writing only a few files. Do not ask the student to request the remaining code in another message.
+
+Include the complete, copy-paste-ready contents of every required file, including:
+
+- All frontend HTML files.
+- All frontend CSS files.
+- All frontend JavaScript files.
+- All required backend JavaScript files.
+- All backend routes and middleware.
+- `backend/package.json`.
+- `backend/.env.example`.
+- A clearly explained local `backend/.env` template.
+- Root and backend `.gitignore` files.
+- `database/schema.sql`.
+- The complete root `README.md`.
+- Automated tests, if included.
+- Any other file required to make the application work.
+
+For every file, show its exact path as a heading followed by its complete code.
+
+Never use phrases such as:
+
+- "Add the remaining code yourself."
+- "Continue similarly for other files."
+- "Implement this part later."
+- "Code omitted for brevity."
+- "Ask me for the next part."
+
+Do not provide pseudocode, incomplete functions, mock implementations in place of real database operations, or unexplained TODOs.
+
+If a feature is intentionally excluded from the MVP, state that clearly rather than pretending it has been implemented.
+
+## 6. Frontend Design and User Experience
+
+Create a professional, modern, responsive interface suitable for a college project demonstration.
+
+Use only HTML, CSS, and Vanilla JavaScript.
+
+Include the pages, forms, dashboards, and components required by the specific project.
+
+Depending on the project, these may include:
+
+- A landing page.
+- Registration and login pages.
+- A dashboard.
+- Data listing pages.
+- Create and edit forms.
+- Detail or profile pages.
+- Search and filtering controls.
+- History or reports pages.
+- Admin management pages.
+- Settings or account pages.
+
+Do not add every page automatically. Include only pages relevant to the project.
+
+### UI requirements
+
+- Use a consistent color palette, typography, spacing, and layout.
+- Create clear navigation and an understandable page hierarchy.
+- Use responsive layouts for mobile, tablet, and desktop.
+- Use cards, tables, forms, status indicators, and dialogs where appropriate.
+- Add clear loading, success, empty, and error states.
+- Display friendly validation messages.
+- Add confirmation before destructive actions.
+- Use meaningful labels, accessible buttons, and keyboard-friendly controls.
+- Avoid broken images, excessive animations, and unnecessary visual effects.
+- Do not depend on remote images or external resources for essential functionality.
+- Render user-provided content safely to prevent cross-site scripting (XSS).
+- Do not use browser alerts as the main interface for every interaction.
+
+Make the interface visually polished but simple enough for beginners to understand and maintain.
+
+Provide the complete CSS required for every page and component.
+
+## 7. Backend and REST API Requirements
+
+Use Node.js and Express.js to build a functional backend.
+
+Include the components necessary for the specific application, such as:
+
+- Express server initialization.
+- Environment variable loading.
+- Supabase PostgreSQL client configuration.
+- REST API routes.
+- Request validation.
+- Authentication and authorization middleware, where needed.
+- Centralized error handling.
+- JSON request and response handling.
+- Appropriate HTTP status codes.
+- A health-check endpoint.
+- Safe static-file serving for the frontend.
+
+Design REST endpoints based on the project's actual features.
+
+For example, a management application might require endpoints to create, list, update, and delete records. A booking application may also require endpoints to check availability, create bookings, and cancel them.
+
+Do not copy the same API endpoints into every project. Adapt them to the selected project.
+
+For every endpoint, specify:
+
+- HTTP method.
+- API path.
+- Purpose.
+- Required request body or query parameters.
+- Authentication and role requirements.
+- Successful response format.
+- Relevant error responses.
+
+The frontend must communicate with the backend using `fetch()` and the correct API endpoints.
+
+The backend must validate incoming data and perform the required database operations. Never trust frontend validation alone.
+
+Use appropriate error handling and consistent JSON responses. Do not expose stack traces, secret keys, raw database errors, or sensitive information to users.
+
+## 8. Database Design — Supabase PostgreSQL
+
+Design the database specifically for the selected project.
+
+Create a complete `database/schema.sql` file that includes all required tables, relationships, constraints, indexes, and other necessary database objects.
+
+Depending on the project, include:
+
+- Primary keys and foreign keys.
+- Appropriate data types.
+- Required fields and sensible defaults.
+- Unique constraints.
+- Check constraints.
+- Created and updated timestamps.
+- Relationships between users and records.
+- Indexes for frequently searched or related fields.
+- Update timestamp triggers, if needed.
+- Database functions or transactions when necessary.
+
+Do not create a fixed set of tables for every project. Choose the tables and columns based on the actual requirements.
+
+For example:
+
+- An attendance application needs attendance records associated with students and dates.
+- An expense tracker needs expenses, categories, and ownership information.
+- A booking application needs bookings, available slots, and duplicate-booking prevention.
+- A discussion forum needs questions, answers, and user relationships.
+
+These are examples, not a mandatory database schema for every project.
+
+### Database correctness requirements
+
+- Ensure the SQL schema matches every table and column referenced in the backend.
+- Use foreign keys and constraints to prevent invalid relationships.
+- Prevent duplicate registrations, votes, bookings, or other repeated actions where the project requires uniqueness.
+- Handle related record creation and deletion safely.
+- Use database transactions or PostgreSQL functions when multiple related changes must succeed together.
+- Store dates, times, quantities, monetary amounts, statuses, and calculated values appropriately.
+- Calculate important totals and balances on the backend or database rather than trusting values submitted by the browser.
+- Provide the complete SQL needed to initialize the database.
+
+Explain how to open the Supabase project, access the SQL Editor, paste the SQL, execute it, and verify that the tables were created successfully.
+
+## 9. Authentication, Authorization, and Security
+
+Implement security appropriate to the selected project.
+
+If the project requires users to log in, provide a secure authentication system and explain it in simple language.
+
+Choose a consistent approach, preferably Supabase Auth where appropriate, or a carefully implemented server-managed authentication mechanism. Do not mix incompatible authentication approaches.
+
+If using Supabase Auth, explain how user identities connect to application tables and how the backend verifies the authenticated user.
+
+If implementing custom authentication, securely hash passwords using a suitable password-hashing library. Never store passwords in plaintext.
+
+For authenticated applications:
+
+- Protect private API endpoints.
+- Enforce role-based permissions on the backend.
+- Ensure users can access only the records they are authorized to access.
+- Never trust a user ID or role supplied by the browser without verification.
+- Prevent users from changing their own roles through ordinary requests.
+- Validate all incoming data.
+- Keep privileged Supabase keys on the server only.
+- Use secure session or token handling.
+- Configure cookies appropriately when using cookie-based sessions.
+- Apply CSRF protections when required by the authentication design.
+- Use appropriate login rate limiting and security headers.
+- Avoid exposing sensitive user data in API responses.
+
+Configure PostgreSQL Row Level Security (RLS) and suitable policies where appropriate. Explain how the chosen authentication design interacts with RLS.
+
+**Important:** Never place the Supabase service-role key, secret key, database password, or other privileged credentials in frontend JavaScript, HTML, CSS, GitHub, or public documentation. Server-side privileged database access must be protected by backend authorization checks.
+
+If the project does not require accounts, do not add an unnecessary login system. Protect sensitive administrative operations according to the project's actual requirements.
+
+## 10. Environment Variables and Configuration
+
+Create `backend/.env.example` containing all required environment variable names and safe example values.
+
+Create and explain the local `backend/.env` file separately.
+
+Include only variables required by the selected implementation, such as:
+
+- `PORT`
+- `NODE_ENV`
+- `SUPABASE_URL`
+- The appropriate server-side Supabase key.
+- Authentication secrets or session configuration, if needed.
+
+Explain the purpose of each variable and how students obtain their own Supabase credentials.
+
+Clearly distinguish between `.env` and `.env.example`.
+
+Explain how to generate a strong random secret using Node.js when the chosen authentication mechanism requires one.
+
+Never invent real credentials or imply that example values will connect to a real database.
+
+Ensure `.env` is excluded from Git and `.env.example` is included.
+
+## 11. Complete README.md
+
+Create a professional and complete `README.md` in the root directory.
+
+The README must describe the actual project rather than provide generic documentation.
+
+Include:
+
+1. Project title.
+2. Project overview and real-world problem.
+3. Project objectives.
+4. Target users and roles.
+5. Implemented features.
+6. Technology stack.
+7. Complete folder structure.
+8. Prerequisites.
+9. Required software installation links.
+10. Step-by-step setup instructions.
+11. Supabase project creation.
+12. Database schema execution.
+13. Environment variable configuration.
+14. Dependency installation.
+15. Application startup commands.
+16. Frontend-backend-database architecture.
+17. Authentication and security explanation, if applicable.
+18. API endpoints and permissions.
+19. Sample usage instructions.
+20. Manual testing instructions.
+21. Automated testing commands, if tests are provided.
+22. Troubleshooting.
+23. GitHub upload instructions.
+24. Security considerations.
+25. Limitations and possible future improvements.
+
+Ensure every command, path, endpoint, and filename matches the actual implementation.
+
+Do not include actual credentials or private information in the README.
+
+## 12. Beginner-Friendly Setup Instructions
+
+After providing the source code, explain the exact steps students must follow to run the project from an empty folder.
+
+Use numbered steps in the correct execution order.
+
+Cover:
+
+1. Installing Visual Studio Code.
+2. Installing Node.js LTS and npm.
+3. Installing Git.
+4. Verifying the installations.
+5. Creating the root project folder.
+6. Creating `frontend/`, `backend/`, and `database/`.
+7. Creating every required file.
+8. Initializing the backend project.
+9. Installing dependencies.
+10. Creating the Supabase project.
+11. Executing the SQL schema.
+12. Configuring environment variables.
+13. Starting the backend server.
+14. Opening the application in the browser.
+15. Testing the main features.
+16. Diagnosing common errors.
+17. Uploading the project to GitHub.
+
+For each step, provide the exact commands and explain:
+
+- Where to open the terminal.
+- Which directory the command should run from.
+- What the command does.
+- What successful output should look like.
+- How to confirm the step succeeded.
+- What to do if an error occurs.
+
+Use commands appropriate for Windows students, while mentioning macOS/Linux differences only where necessary.
+
+Do not assume students already understand npm, environment variables, REST APIs, SQL, or Git.
+
+## 13. Functional Testing and Verification
+
+Provide a practical testing checklist based on the actual project.
+
+Cover relevant scenarios such as:
+
+- Successful database connection.
+- Successful creation and retrieval of records.
+- Updating and deleting records.
+- Searching and filtering.
+- Empty form submissions.
+- Invalid input.
+- Duplicate records.
+- Missing or invalid authentication.
+- Unauthorized role access.
+- Access to another user's data.
+- Invalid dates, quantities, or booking slots.
+- Boundary conditions and unavailable resources.
+- Database errors.
+- Responsive behavior.
+- Logout and session expiration, if applicable.
+
+Do not test features that the project does not implement.
+
+Provide expected results for each important test.
+
+If automated tests are included, provide the complete test files and exact commands to run them.
+
+If code execution tools are available, perform suitable syntax checks and tests. Clearly distinguish checks actually performed from checks students still need to run. Never claim that the database connection, browser interface, or remote Supabase project has been tested unless it has genuinely been verified.
+
+## 14. Git and GitHub Upload Instructions
+
+Explain how to upload the complete project to GitHub from the root project directory.
+
+Include the exact commands and explain each one:
+
+```bash
+git init
+git status
+git add .
+git status
+git commit -m "Build project"
+git branch -M main
+git remote add origin YOUR_GITHUB_REPOSITORY_URL
+git push -u origin main
+```
+
+Tell students to replace `YOUR_GITHUB_REPOSITORY_URL` with their actual repository URL.
+
+Before committing, verify that:
+
+- `.env` files containing real credentials are excluded.
+- `.env.example` is included.
+- `node_modules/` is excluded.
+- Private user information and database exports are not committed.
+- No secrets appear in the frontend or source code.
+
+Explain how to create a GitHub repository, connect it to the local project, push the code, and verify the uploaded files.
+
+Warn students that adding a file to `.gitignore` does not remove a secret that was already committed. If credentials are exposed, they must be rotated immediately and removed from repository history as appropriate.
+
+## 15. Final Output Format
+
+Organize your response in the following order:
+
+**Part 1 — Project Planning**
+- Project overview.
+- Problem statement.
+- Target users and roles.
+- Features.
+- Pages and workflows.
+- Architecture.
+- Database design.
+
+**Part 2 — Folder Structure**
+- Show the complete final folder tree.
+
+**Part 3 — Complete Source Code**
+- Provide every file in full.
+- Display its exact path before the code block.
+- Keep all files consistent with one another.
+
+**Part 4 — Supabase Database Setup**
+- Provide the full SQL schema.
+- Explain how to execute and verify it.
+
+**Part 5 — Installation and Configuration**
+- Provide exact setup commands.
+- Explain environment variables and dependency installation.
+
+**Part 6 — Running the Application**
+- Explain how to start the server and open the application.
+- Show expected results.
+
+**Part 7 — Testing**
+- Provide a feature-based testing checklist and expected results.
+
+**Part 8 — Troubleshooting**
+- Explain common setup, API, authentication, and database errors.
+
+**Part 9 — Complete README.md**
+- Include the full content of the actual README file.
+
+**Part 10 — GitHub Upload**
+- Provide the complete Git workflow and secret-protection checks.
+
+**Part 11 — Final Verification Checklist**
+- Confirm that the project structure, database, APIs, features, and documentation are consistent.
+
+## 16. Mandatory Final Checks
+
+Before presenting the answer, verify that:
+
+- The project solves the problem implied by `[PROJECT_TITLE]`.
+- The technology stack uses only HTML, CSS, Vanilla JavaScript, Node.js, Express.js, and Supabase PostgreSQL, with necessary npm packages.
+- The frontend directory is named `frontend`, not `public`.
+- The backend directory is named `backend`.
+- The database directory is named `database`.
+- The root directory contains a complete `README.md`.
+- Every required file has complete code.
+- Database tables and columns match the backend queries.
+- Frontend API calls match the backend routes.
+- Environment variables are consistent across all files and documentation.
+- Authentication and authorization are enforced wherever necessary.
+- Privileged database credentials never reach the browser.
+- Data is stored persistently in Supabase PostgreSQL, not only in browser memory or localStorage.
+- The documented commands work with the provided folder structure.
+- GitHub instructions protect credentials and private data.
+- The project remains manageable for first-year B.Tech students.
+
+**Final instruction:** Generate the entire project in one response. Make sensible assumptions where necessary, explain them clearly, and do not ask the student to provide additional information unless a genuinely essential requirement cannot be inferred. Do not defer required code or setup steps to a future response.
+
+~~~

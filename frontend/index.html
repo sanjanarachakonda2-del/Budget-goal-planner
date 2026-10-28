@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b4d">
+  <title>Budget Goal Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Budget Goal Planner home"><span class="brand-mark">₹</span> Budget Goal Planner</a>
+    <nav class="top-nav"><span id="nav-user" aria-live="polite"></span><button id="logout-btn" class="button button-ghost hidden" type="button">Sign out</button></nav>
+  </header>
+  <main class="container">
+    <section id="auth-view" class="auth-layout">
+      <div class="hero">
+        <p class="eyebrow">YOUR MONEY, WITH A PLAN</p>
+        <h1>Make your money<br><span>work for your goals.</span></h1>
+        <p class="muted hero-copy">Plan monthly category budgets, track everyday expenses, and see what you have left—without the guesswork.</p>
+        <div class="hero-stats"><div><strong>01</strong><span>Set a budget</span></div><div><strong>02</strong><span>Track spending</span></div><div><strong>03</strong><span>Stay on track</span></div></div>
+      </div>
+      <section class="panel auth-panel" aria-label="Account access">
+        <div class="tabs" role="tablist"><button class="tab active" data-tab="signin" type="button" role="tab" aria-selected="true">Sign in</button><button class="tab" data-tab="signup" type="button" role="tab" aria-selected="false">Create account</button></div>
+        <div id="auth-message" class="notice hidden" role="status"></div>
+        <form id="signin-form" class="auth-form">
+          <h2>Welcome back</h2><p class="muted">Sign in to view your monthly plan.</p>
+          <label>Email<input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters"></label>
+          <button class="button button-primary full-width" type="submit">Sign in <span>→</span></button>
+        </form>
+        <form id="signup-form" class="auth-form hidden">
+          <h2>Start planning</h2><p class="muted">Create your personal budget workspace.</p>
+          <label>Your name<input name="name" required maxlength="80" autocomplete="name" placeholder="Full name"></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+          <label>Password<input name="password" type="password" autocomplete="new-password" required minlength="8" placeholder="At least 8 characters"></label>
+          <button class="button button-primary full-width" type="submit">Create account <span>→</span></button>
+        </form>
+        <p class="fine-print">Your financial records are private to your account.</p>
+      </section>
+    </section>
+
+    <section id="app-view" class="hidden">
+      <div class="welcome-row">
+        <div><p class="eyebrow">MONTHLY OVERVIEW</p><h1>Your budget, <span>at a glance.</span></h1><p class="muted">A small plan today makes a big difference over time.</p></div>
+        <label class="month-picker">Viewing month<input id="month-input" type="month"></label>
+      </div>
+      <div id="app-message" class="notice hidden" role="status"></div>
+      <div class="summary-grid">
+        <article class="summary-card"><span class="summary-label">Monthly budget</span><strong id="total-budget">₹0</strong><span class="summary-foot">Across your categories</span></article>
+        <article class="summary-card"><span class="summary-label">Spent so far</span><strong id="total-spent">₹0</strong><span class="summary-foot">Expenses this month</span></article>
+        <article class="summary-card accent-card"><span class="summary-label">Budget remaining</span><strong id="total-remaining">₹0</strong><span id="remaining-caption" class="summary-foot">Set budgets to get started</span></article>
+      </div>
+      <div class="content-grid">
+        <section class="panel">
+          <div class="section-heading"><div><p class="eyebrow">YOUR LIMITS</p><h2>Category budgets</h2></div><button id="add-budget-toggle" class="button button-secondary" type="button">+ Set budget</button></div>
+          <form id="budget-form" class="inline-form hidden">
+            <label>Category<input name="category" required maxlength="50" placeholder="e.g. Groceries"></label>
+            <label>Monthly limit (₹)<input name="amount" type="number" min="0.01" max="100000000" step="0.01" required></label>
+            <button class="button button-primary" type="submit">Save</button><button type="button" id="cancel-budget" class="button button-ghost">Cancel</button>
+          </form>
+          <div id="budget-list" class="budget-list"><div class="empty-state">Loading your budgets…</div></div>
+        </section>
+        <section class="panel">
+          <div class="section-heading"><div><p class="eyebrow">MONEY OUT</p><h2>Add an expense</h2></div></div>
+          <form id="expense-form" class="stack-form">
+            <label>What did you spend on?<input name="description" required maxlength="120" placeholder="e.g. Weekly groceries"></label>
+            <div class="form-row">
+              <label>Amount (₹)<input name="amount" type="number" min="0.01" max="100000000" step="0.01" required placeholder="0.00"></label>
+              <label>Category<input name="category" required maxlength="50" list="category-options" placeholder="e.g. Groceries"><datalist id="category-options"></datalist></label>
+            </div>
+            <label>Date<input name="spent_on" id="expense-date" type="date" required></label>
+            <button class="button button-primary" type="submit">+ Record expense</button>
+          </form>
+        </section>
+      </div>
+      <section class="panel expenses-panel">
+        <div class="section-heading"><div><p class="eyebrow">RECENT ACTIVITY</p><h2>Expense history</h2></div><div class="filter-row"><input id="search-expenses" type="search" placeholder="Search expenses" aria-label="Search expenses"><select id="filter-category" aria-label="Filter by category"><option value="">All categories</option></select></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Expense</th><th>Category</th><th>Date</th><th class="number">Amount</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="expense-rows"><tr><td colspan="5" class="empty-state">Loading expenses…</td></tr></tbody></table></div>
+      </section>
+      <section id="admin-panel" class="panel hidden">
+        <div class="section-heading"><div><p class="eyebrow">ADMINISTRATION</p><h2>Registered users</h2></div></div>
+        <p class="muted">Admin view shows account metadata only, not users’ expenses or passwords.</p><div id="admin-users" class="table-wrap"></div>
+      </section>
+      <footer class="app-footer">Budget with intention. Spend with confidence.</footer>
+    </section>
+  </main>
+</body>
+</html>
